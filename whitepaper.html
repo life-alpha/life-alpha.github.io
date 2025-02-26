@@ -6,27 +6,29 @@
   <title>Stem Cell Therapy: The Future of Regenerative Medicine</title>
   <style>
     body {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: 'Computer Modern', 'Latin Modern', 'Latin Modern Roman', 'CMU Serif', Georgia, serif;
       color: #333;
       margin: 0;
       padding: 20px;
-      line-height: 1.6;
-      background-color: #f9f9f9;
+      line-height: 1.5;
+      background-color: #fcfcfc;
       max-width: 800px;
       margin: 0 auto;
     }
 
     header, footer {
-      background-color: #fff;
-      border-bottom: 2px solid #eee;
       padding: 20px;
       text-align: center;
+      width: 100%;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      font-weight: bold;
+      margin: 0 auto;
+      font-size: 2.2em;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 1em;
+      max-width: 80%;
     }
 
     main {
@@ -34,28 +36,30 @@
       padding: 0 20px 40px;
       background-color: #fff;
       border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     h2 {
       margin-top: 40px;
-      font-size: 1.8em;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 10px;
-      font-weight: bold;
+      font-size: 1.6em;
+      padding-bottom: 5px;
+      font-weight: normal;
       text-align: left;
+      border-bottom: 1px solid #ddd;
     }
 
     h3 {
       margin-top: 30px;
-      font-size: 1.5em;
+      font-size: 1.3em;
       color: #444;
-      font-weight: bold;
+      font-weight: normal;
       text-align: left;
     }
 
     p {
       margin: 20px 0;
       text-align: justify;
+      hyphens: auto;
     }
 
     ul {
@@ -64,11 +68,11 @@
     }
 
     .equation {
-      background: #f5f5f5;
-      padding: 10px;
+      background: #f9f9f9;
+      padding: 15px;
       margin: 20px 0;
       font-style: italic;
-      border: 1px solid #ddd;
+      border: none;
       text-align: center;
     }
 
@@ -80,14 +84,16 @@
     figcaption {
       font-size: 0.9em;
       color: #555;
-      margin-top: 5px;
+      margin-top: 10px;
+      font-style: italic;
     }
 
     .executive-summary, .introduction, .references {
-      background-color: #f2f2f2;
+      background-color: #f9f9f9;
       padding: 20px;
       margin: 20px 0;
-      border: 1px solid #ddd;
+      border: none;
+      border-left: 3px solid #ddd;
     }
 
     .references ul {
@@ -97,18 +103,21 @@
 
     .references li {
       margin-bottom: 10px;
+      text-indent: -2em;
+      padding-left: 2em;
     }
 
     .section-title {
       margin-bottom: 10px;
-      font-weight: bold;
-      font-size: 1.4em;
+      font-weight: normal;
+      font-size: 1.2em;
       color: #444;
     }
 
     footer {
-      border-top: 2px solid #eee;
-      border-bottom: none;
+      border-top: 1px solid #eee;
+      color: #777;
+      font-size: 0.9em;
     }
 
     footer p {
@@ -120,6 +129,7 @@
       width: 100%;
       margin: 20px 0;
       border-collapse: collapse;
+      font-size: 0.9em;
     }
 
     th, td {
@@ -129,30 +139,174 @@
     }
 
     th {
-      background-color: #f2f2f2;
+      background-color: #f5f5f5;
+      font-weight: normal;
+    }
+
+    /* LaTeX-style abstract */
+    .abstract {
+      font-size: 0.9em;
+      margin: 30px auto;
+      text-align: justify;
+      max-width: 80%;
+      background-color: #f9f9f9;
+      padding: 20px 30px;
+      border-bottom: 1px solid #eee;
+      border-top: 1px solid #eee;
+    }
+
+    .abstract-title {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+
+    /* Remove two-column abstract for larger screens */
+    @media (min-width: 768px) {
+      .abstract {
+        column-count: 1;
+        column-gap: 0;
+      }
+    }
+
+    /* LaTeX-style section numbering */
+    main {
+      counter-reset: section;
+    }
+
+    h2::before {
+      counter-increment: section;
+      content: counter(section) ". ";
+    }
+
+    section {
+      counter-reset: subsection;
+    }
+
+    h3::before {
+      counter-increment: subsection;
+      content: counter(section) "." counter(subsection) " ";
+    }
+
+    /* LaTeX-style figure numbering */
+    figure {
+      counter-increment: figure;
+    }
+
+    figcaption::before {
+      content: "Figure " counter(figure) ": ";
+    }
+
+    /* LaTeX style first paragraph indentation */
+    p + p {
+      text-indent: 1.5em;
+      margin-top: 0;
+    }
+
+    /* LaTeX style citations */
+    .citation {
+      font-size: 0.9em;
+      vertical-align: super;
+      color: #0366d6;
+    }
+
+    /* LaTeX style authors and affiliations */
+    .authors {
+      font-size: 1.2em;
+      margin: 0 auto 1em auto;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+
+    .affiliations {
+      font-size: 1em;
+      margin: 0 auto 1em auto;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+
+    .date {
+      font-size: 1em;
+      margin: 0 auto 1em auto;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+
+    /* LaTeX-style table of contents */
+    .toc {
+      background-color: #f9f9f9;
+      padding: 20px 30px;
+      margin: 20px 0 30px 0;
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .toc h2 {
+      text-align: center;
+      border-bottom: none;
+      margin-bottom: 20px;
+    }
+
+    .toc h2::before {
+      content: none;
+    }
+
+    .toc ol {
+      counter-reset: item;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .toc > ol > li {
+      margin-bottom: 10px;
       font-weight: bold;
     }
 
+    .toc > ol > li::before {
+      content: counter(item) ". ";
+      counter-increment: item;
+    }
+
+    .toc > ol > li > ol {
+      padding-left: 30px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+    }
+
+    .toc > ol > li > ol > li {
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    .toc > ol > li > ol > li::before {
+      content: counter(item) "." counter(subitem) " ";
+      counter-increment: subitem;
+    }
+
+    /* Back button styling */
     .back-button {
       position: fixed;
       top: 10px;
       left: 10px;
       background-color: #fff;
       color: #333;
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 8px 15px;
+      border-radius: 3px;
       text-decoration: none;
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
+      font-family: sans-serif;
+      font-size: 0.9em;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
       z-index: 1000;
     }
 
     .back-button:hover {
       background-color: #f0f0f0;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
   </style>
   <script type="text/javascript" async
@@ -164,11 +318,69 @@
 
   <header>
     <h1>Stem Cell Therapy: The Future of Regenerative Medicine</h1>
-    <p><strong>A Comprehensive Analysis of Current Applications and Future Potential</strong></p>
-    <p>February 2025</p>
+    <p class="authors">Robert Douglas, et al.</p>
+    <p class="affiliations">Longevity Alpha Research Institute</p>
+    <p class="date">February 2025</p>
   </header>
 
   <main>
+    <!-- Table of Contents -->
+    <section class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li>Introduction</li>
+        <li>Types of Stem Cells
+          <ol>
+            <li>Embryonic Stem Cells (ESCs)</li>
+            <li>Adult Stem Cells</li>
+            <li>Induced Pluripotent Stem Cells (iPSCs)</li>
+          </ol>
+        </li>
+        <li>Current Applications
+          <ol>
+            <li>Orthopedic Treatments</li>
+            <li>Neurological Conditions</li>
+            <li>Cardiovascular Disease</li>
+          </ol>
+        </li>
+        <li>Example: Logistic Growth Model in Stem Cell Expansion</li>
+        <li>Challenges and Ethical Considerations</li>
+        <li>The Link Between Toxins and Aging
+          <ol>
+            <li>How Toxins Trigger Cellular Aging</li>
+            <li>Oxidative Stress and Premature Aging</li>
+            <li>The Role of Telomeres in Aging</li>
+            <li>Supporting Healthy Aging Through Intervention</li>
+          </ol>
+        </li>
+        <li>How Environmental Toxins Affect Your DNA and Health</li>
+        <li>Future Directions
+          <ol>
+            <li>Enhanced Delivery Methods</li>
+            <li>Advanced Cell Programming</li>
+            <li>Integration with Artificial Intelligence</li>
+            <li>Off-the-Shelf Stem Cell Products</li>
+            <li>Combination Therapies</li>
+          </ol>
+        </li>
+        <li>Conclusion</li>
+        <li>References</li>
+      </ol>
+    </section>
+
+    <!-- Abstract (new LaTeX-style abstract) -->
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>
+        Stem cell therapy represents a paradigm shift in regenerative medicine, offering unprecedented 
+        potential for treating previously intractable conditions. This paper examines the current state 
+        of stem cell research, clinical applications, and future directions. We analyze various stem cell 
+        types, their therapeutic applications in orthopedics, neurology, and cardiovascular medicine, and 
+        discuss emerging technologies that promise to enhance their efficacy. Ethical considerations and 
+        regulatory challenges are also addressed, providing a comprehensive overview of this rapidly evolving field.
+      </p>
+    </div>
+
     <!-- Executive Summary -->
     <section class="executive-summary">
       <h2>Executive Summary</h2>
@@ -193,7 +405,7 @@
       <h2>Introduction</h2>
       <p>
         Stem cells—unique for their remarkable capacity to self-renew and differentiate into a wide range 
-        of specialized cell types—offer a transformative frontier in healthcare. From regenerating damaged 
+        of specialized cell types—offer a transformative frontier in healthcare<span class="citation">[1]</span>. From regenerating damaged 
         tissues to mitigating age-related degenerative diseases, stem cell therapies underscore a shift 
         from symptom-focused treatments to true tissue and organ regeneration.
       </p>
@@ -213,7 +425,7 @@
       <h3>1. Embryonic Stem Cells (ESCs)</h3>
       <p>
         <strong>Origin &amp; Properties:</strong> Derived from blastocysts in early-stage embryos, ESCs 
-        are <em>pluripotent</em>, meaning they can differentiate into any cell type in the human body.
+        are <em>pluripotent</em>, meaning they can differentiate into any cell type in the human body<span class="citation">[2]</span>.
       </p>
       <p>
         <strong>Therapeutic Potential:</strong> Their broad differentiation potential makes them invaluable 
@@ -241,7 +453,7 @@
       <h3>3. Induced Pluripotent Stem Cells (iPSCs)</h3>
       <p>
         <strong>Breakthrough Discovery:</strong> Created by reprogramming adult somatic cells to an embryonic-like 
-        pluripotent state—a groundbreaking achievement recognized with the 2012 Nobel Prize in Medicine.
+        pluripotent state—a groundbreaking achievement recognized with the 2012 Nobel Prize in Medicine<span class="citation">[3]</span>.
       </p>
       <p>
         <strong>Benefits:</strong> iPSCs avoid many ethical issues tied to ESC use and can be patient-specific, 
@@ -260,7 +472,7 @@
       <h3>1. Orthopedic Treatments</h3>
       <p>
         <strong>Clinical Uses:</strong> Stem cell therapies are proving effective in conditions such as osteoarthritis, 
-        bone injuries, and cartilage defects. They help regenerate worn cartilage and reduce joint inflammation.
+        bone injuries, and cartilage defects<span class="citation">[4]</span>. They help regenerate worn cartilage and reduce joint inflammation.
       </p>
       <p>
         <strong>Key Outcomes:</strong> Enhanced pain management, improved functionality, reduced scar tissue formation, 
@@ -281,7 +493,7 @@
       <p>
         <strong>Heart Repair:</strong> Stem cells can regenerate cardiomyocytes and reduce scar tissue following 
         myocardial infarction, with clinical trials indicating improvements in heart function and patient 
-        quality of life.
+        quality of life<span class="citation">[5]</span>.
       </p>
       <p>
         <strong>Challenges &amp; Considerations:</strong> Ensuring long-term engraftment and avoiding arrhythmogenic 
@@ -302,7 +514,7 @@
       <div class="equation">
         <strong>Logistic Growth Equation:</strong>
         <br><br>
-        \( \frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right) \)
+        \[ \frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right) \]
       </div>
 
       <p>
@@ -316,12 +528,13 @@
 
       <!-- Graph Placeholder -->
       <figure>
-        <img src="https://via.placeholder.com/600x400.png?text=Logistic+Growth+Curve+of+Stem+Cells" 
-             alt="Logistic Growth Curve" style="max-width:100%;">
+        <canvas id="logisticCurve" width="600" height="400" style="max-width:100%;"></canvas>
         <figcaption>
-          Figure 1. Illustration of a logistic growth curve representing stem cell proliferation over time.
+          <strong>Figure 1.</strong> Illustration of a logistic growth curve representing stem cell proliferation over time.
         </figcaption>
       </figure>
+
+      <script src="media/logistic-growth-curve.js"></script>
 
       <p>
         As the population (<em>N</em>) grows, it initially increases rapidly if <em>N</em> is well below <em>K</em>. 
@@ -342,6 +555,152 @@
       </ul>
     </section>
 
+    <!-- Toxins and Aging -->
+    <section>
+      <h2>The Link Between Toxins and Aging</h2>
+      <p>
+        Aging is a natural process, but environmental toxins can speed it up by causing
+        cellular damage, oxidative stress, and chronic inflammation. These disruptions
+        affect how cells function, leading to premature aging and increasing the risk of
+        chronic diseases.
+      </p>
+
+      <h3>1. How Toxins Trigger Cellular Aging</h3>
+      <p>
+        Toxins like heavy metals, pesticides, and industrial chemicals damage cells and
+        lead to the buildup of senescent cells—cells that stop dividing and start releasing
+        harmful inflammatory substances. This process impairs tissue repair, accelerates
+        aging, and contributes to conditions like arthritis and neurodegenerative diseases.
+      </p>
+
+      <h3>2. Oxidative Stress and Premature Aging</h3>
+      <p>
+        Toxins increase oxidative stress by creating an imbalance between damaging free
+        radicals and the body's antioxidants. This damages key cellular components like
+        DNA, proteins, and lipids, leading to chronic inflammation and diseases such as
+        diabetes, cardiovascular issues, and infertility.
+      </p>
+
+      <h3>3. The Role of Telomeres in Aging</h3>
+      <p>
+        Telomeres, protective caps at the ends of chromosomes, naturally shorten as we
+        age. However, toxins can accelerate this process, causing premature cellular aging.
+        Research shows that exposure to pollutants leads to telomere erosion, which
+        increases the risk of age-related diseases like cancer and cardiovascular disorders.
+      </p>
+
+      <h3>4. Supporting Healthy Aging Through Intervention</h3>
+      <p>
+        At <strong>Longevity Alpha</strong>, we address premature aging by focusing on detoxification, cellular
+        repair, and lifestyle optimization. We use personalized detox protocols to remove
+        harmful toxins, reducing oxidative stress and inflammation.
+      </p>
+      <p>
+        We offer regenerative therapies like Platelet-Rich Plasma (PRP), Stem Cell
+        Treatments, and Exosome Therapy to stimulate tissue repair and combat cellular
+        aging. Exosomes, which are extracellular vesicles that aid in cell communication
+        and regeneration, help repair damaged tissues, reduce inflammation, and promote
+        overall cellular rejuvenation.
+      </p>
+      <p>
+        By integrating detoxification, advanced therapies, and practical lifestyle changes,
+        we help patients protect their cells and promote healthier aging. With the right
+        interventions, you can slow down aging and enhance long-term vitality.
+      </p>
+
+      <h3>5. Comprehensive Treatment Approach</h3>
+      <p>
+        At our practice, we implement evidence-based interventions that go beyond conventional
+        lifestyle recommendations. Our approach encompasses specialized detoxification protocols
+        designed to eliminate environmental toxins, pesticides, and heavy metals, thereby reducing
+        systemic inflammation and facilitating cellular repair processes.
+      </p>
+
+      <p>
+        We utilize advanced regenerative treatments, including Platelet-Rich Plasma (PRP) and
+        Stem Cell Therapy, which harness the body's intrinsic healing mechanisms. These
+        therapeutic modalities have demonstrated efficacy in:
+      </p>
+      <ul>
+        <li>Promoting tissue repair and regeneration</li>
+        <li>Enhancing immune system function</li>
+        <li>Reducing chronic inflammation</li>
+        <li>Supporting neurological health</li>
+      </ul>
+
+      <p>
+        Our holistic methodology integrates three key components:
+      </p>
+      <ul>
+        <li><strong>Targeted Detoxification:</strong> Customized protocols to eliminate accumulated toxins</li>
+        <li><strong>Regenerative Therapies:</strong> Advanced treatments to repair cellular damage</li>
+        <li><strong>Lifestyle Optimization:</strong> Strategic adjustments to minimize ongoing toxin exposure</li>
+      </ul>
+
+      <p>
+        This comprehensive approach addresses both acute cellular damage and long-term prevention
+        of toxin-related diseases. Through understanding and targeting the cellular mechanisms
+        of toxin-induced aging, we can effectively promote longevity and optimal health outcomes.
+      </p>
+    </section>
+
+    <!-- Environmental Toxins and DNA Health -->
+    <section>
+      <h2>How Environmental Toxins Affect Your DNA and Health</h2>
+      <p>
+        Our environment is filled with hidden toxins that can quietly enter the body and
+        affect our health in ways we might not immediately realize. Chemicals, heavy metals
+        like lead and mercury, pesticides, and industrial pollutants surround us every day.
+        They make their way into our bodies through the air we breathe, the food we eat, and
+        even through our skin.
+      </p>
+
+      <p>
+        Once inside the body, these toxins don't just sit harmlessly in our tissues. They can
+        travel through the bloodstream to our cells and interact with our DNA. This is where
+        the real damage begins. Environmental toxins can either directly damage DNA or
+        alter how genes are expressed—a process known as epigenetic modification.
+      </p>
+
+      <p>
+        When toxins cause epigenetic changes, they turn certain genes "on" or "off" without
+        changing the DNA sequence itself. Over time, these disruptions can lead to
+        mutations and dysfunctional gene expression, creating the foundation for chronic
+        diseases.
+      </p>
+
+      <p>
+        One of the areas where we see the damaging impact of toxins is in
+        neurodegenerative diseases like Parkinson's and Alzheimer's. Heavy metals and
+        certain pesticides are neurotoxic, meaning they can harm or kill brain cells. This
+        damage accumulates over time, affecting memory, movement, and cognitive
+        function.
+      </p>
+
+      <p>
+        Scientists are discovering more links between environmental toxins and a wide range
+        of diseases. What may seem like a small exposure today can accumulate over time
+        and have serious long-term health consequences.
+      </p>
+
+      <p>
+        The good news is that we can reduce our exposure to harmful toxins and support the
+        body's natural ability to repair itself.
+      </p>
+
+      <p>
+        At <strong>Longevity Alpha</strong>, we focus on identifying these environmental factors and their impact
+        on your health. Through advanced testing, personalized detoxification protocols, and
+        lifestyle recommendations, we help support your body's ability to manage toxins and
+        protect your DNA from long-term damage.
+      </p>
+
+      <p>
+        By understanding how toxins affect us at a cellular level, we can make informed
+        choices to safeguard our health and build a healthier future.
+      </p>
+    </section>
+
     <!-- Future Directions -->
     <section>
       <h2>Future Directions</h2>
@@ -355,7 +714,7 @@
       <h3>2. Advanced Cell Programming</h3>
       <p>
         Gene editing tools like CRISPR/Cas9 and epigenetic modifications hold promise for correcting 
-        genetic abnormalities and refining stem cell behavior.
+        genetic abnormalities and refining stem cell behavior<span class="citation">[1,4]</span>.
       </p>
 
       <h3>3. Integration with Artificial Intelligence</h3>
@@ -382,7 +741,7 @@
       <h2>Conclusion</h2>
       <p>
         Stem cell therapy heralds a revolutionary shift in medical care—from managing symptoms to 
-        regenerating damaged tissues and organs. Over the last two decades, the field has advanced 
+        regenerating damaged tissues and organs<span class="citation">[5]</span>. Over the last two decades, the field has advanced 
         from theoretical research to tangible clinical applications across orthopedics, neurology, 
         and cardiovascular medicine.
       </p>
@@ -398,17 +757,22 @@
     <section class="references">
       <h2>References</h2>
       <ul>
-        <li>1. National Institutes of Health. (2024). <em>Stem Cell Information</em>.</li>
-        <li>2. International Society for Stem Cell Research. (2024). <em>Guidelines for Stem Cell Research and Clinical Translation</em>.</li>
-        <li>3. World Health Organization. (2024). <em>Regenerative Medicine: Global Perspectives</em>.</li>
-        <li>4. Cell Stem Cell Journal. (2024). <em>Advances in Stem Cell Therapy: A Systematic Review</em>.</li>
-        <li>5. Nature Medicine. (2024). <em>Clinical Applications of Stem Cell Therapy: Current Status and Future Prospects</em>.</li>
+        <li>[1] National Institutes of Health. (2024). <em>Stem Cell Information</em>.</li>
+        <li>[2] International Society for Stem Cell Research. (2024). <em>Guidelines for Stem Cell Research and Clinical Translation</em>.</li>
+        <li>[3] World Health Organization. (2024). <em>Regenerative Medicine: Global Perspectives</em>.</li>
+        <li>[4] Cell Stem Cell Journal. (2024). <em>Advances in Stem Cell Therapy: A Systematic Review</em>.</li>
+        <li>[5] Nature Medicine. (2024). <em>Clinical Applications of Stem Cell Therapy: Current Status and Future Prospects</em>.</li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Longevity Alpha. All rights reserved.</p>
+    <p>
+      <a href="whitepaper.html">Stem Cell Therapy Whitepaper</a> | 
+      <a href="#">Privacy Policy</a> | 
+      <a href="#">Terms of Use</a> | 
+      <a href="investors.html">Investors</a>
+    </p>
   </footer>
 
 </body>
