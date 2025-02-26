@@ -264,6 +264,24 @@
             text-align: center;
         }
 
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #3498db;
+        }
+
+        .footer-links {
+            margin: 1rem 0;
+        }
+
+        .footer-links a {
+            margin: 0 1rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -455,10 +473,12 @@
     <footer>
         <div class="container">
 
-            <p>&copy; 2025 Longevity Alpha. All rights reserved.</p>
-            <p>
+            <div class="footer-links">
+                <a href="whitepaper.html">Stem Cell Therapy Whitepaper</a> |
                 <a href="#">Privacy Policy</a> |
                 <a href="#">Terms of Use</a>
+            </div>
+            <p>&copy; 2025 Longevity Alpha. All rights reserved.</p>
             </p>
         </div>
     </footer>
