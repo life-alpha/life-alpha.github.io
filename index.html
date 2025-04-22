@@ -279,6 +279,37 @@
             margin: 0 auto;
         }
 
+        .contact-form button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .email-link {
+            color: #3498db;
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
@@ -523,10 +554,10 @@
             <h2>Our Locations</h2>
             <div class="locations">
                 <div class="location-card">
-                    <h3>Miami Flagship Clinic</h3>
-                    <p>1100 Brickell Avenue, Suite 800</p>
-                    <p>Miami, FL 33131</p>
-                    <p>+1 (305) 555-0123</p>
+                    <h3>Cape Town Flagship Clinic</h3>
+                    <p>56 Shortmarket Street</p>
+                    <p>Cape Town City Centre, Cape Town</p>
+                    <p>+27 21 555 0123</p>
                 </div>
                 <div class="location-card">
                     <h3>Jackson Hole Clinic</h3>
@@ -535,10 +566,10 @@
                     <p>+1 (307) 555-0123</p>
                 </div>
                 <div class="location-card">
-                    <h3>Cape Town Clinic</h3>
-                    <p>100 Medical Mile</p>
-                    <p>Cape Town, 8001</p>
-                    <p>+27 21 555 0123</p>
+                    <h3>Miami Clinic</h3>
+                    <p>1100 Brickell Avenue, Suite 800</p>
+                    <p>Miami, FL 33131</p>
+                    <p>+1 (305) 555-0123</p>
                 </div>
 
             </div>
@@ -549,21 +580,10 @@
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Phone Number">
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+            <div class="contact-info">
+                <p>For inquiries, please contact us at:</p>
+                <p><a href="mailto:info@life-alpha.com" class="email-link">info@life-alpha.com</a></p>
+            </div>
         </div>
     </section>
 

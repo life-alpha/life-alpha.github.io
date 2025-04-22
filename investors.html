@@ -197,6 +197,223 @@
     .negative {
       color: #d9534f;
     }
+    
+    /* Proforma Table Styling */
+    .proforma-table-container {
+      overflow-x: auto;
+      margin: 20px 0 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    
+    .proforma-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9em;
+      min-width: 800px;
+    }
+    
+    .proforma-table th {
+      background-color: #4a7eb3;
+      color: white;
+      font-weight: 500;
+      text-align: left;
+      padding: 12px 15px;
+    }
+    
+    .proforma-table td {
+      padding: 10px 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .proforma-table tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+    
+    .proforma-table tr:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .section-header {
+      background-color: #e0e7f1;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .subsection-header {
+      background-color: #f0f5fa;
+      font-style: italic;
+      color: #444;
+    }
+    
+    .summary-row {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+    
+    /* Property Investment Styling */
+    .property-investment {
+      margin: 30px 0;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .property-image {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .property-main-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .property-image-grid {
+      display: flex;
+      height: 100px;
+    }
+    
+    .property-image-grid img {
+      flex: 1;
+      object-fit: cover;
+      margin: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .property-image-grid img:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    
+    .property-details {
+      padding: 25px;
+    }
+    
+    .property-details h4 {
+      color: #4a7eb3;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .property-description {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    .property-specs {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .spec-item {
+      flex: 1 0 30%;
+      margin-bottom: 10px;
+      min-width: 150px;
+    }
+    
+    .spec-label {
+      font-weight: bold;
+      color: #666;
+      display: block;
+      font-size: 0.9em;
+    }
+    
+    .spec-value {
+      color: #333;
+      font-size: 1.1em;
+    }
+    
+    .property-features {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+    
+    .property-features li {
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    .property-features li:before {
+      content: '✓';
+      color: #4a7eb3;
+      position: absolute;
+      left: 0;
+      top: 8px;
+    }
+    
+    @media (min-width: 768px) {
+      .property-investment {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .property-main-image {
+        height: 400px;
+      }
+    }
+    
+    /* Tab styling */
+    .tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #4a7eb3;
+      background-color: #f5f5f5;
+      border-radius: 5px 5px 0 0;
+    }
+    
+    .tab-button {
+      background: #e8e8e8;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      cursor: pointer;
+      font-family: inherit;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      margin-right: 2px;
+      border-radius: 5px 5px 0 0;
+      color: #555;
+      box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .tab-button:hover {
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    
+    .tab-button.active {
+      background-color: #4a7eb3;
+      color: white;
+      font-weight: bold;
+      border-bottom: 3px solid #4a7eb3;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -218,7 +435,14 @@
     <div class="investor-content" id="investor-content">
       <h2>Investor Materials</h2>
       
-      <section>
+      <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'overview')">Overview</button>
+        <button class="tab-button" onclick="openTab(event, 'documents')">Documents</button>
+        <button class="tab-button" onclick="openTab(event, 'events')">Events</button>
+        <button class="tab-button" onclick="openTab(event, 'proforma')">Proforma</button>
+      </div>
+      
+      <div id="overview" class="tab-content active">
         <h3>Financial Overview</h3>
         <div class="financial-metrics">
           <div class="metric">
@@ -242,9 +466,67 @@
             <span class="change positive">↑ 5% YoY</span>
           </div>
         </div>
-      </section>
+        
+        <h3>Cape Town Flagship Property Investment</h3>
+        <div class="property-investment">
+          <div class="property-image">
+            <img src="https://images.prop24.com/tn6lfbxpwvfvzxgd6yfqwdlvlm/Crop676x507" alt="Victorian Residence in Oranjezicht" class="property-main-image">
+            <div class="property-image-grid">
+              <img src="https://images.prop24.com/tn6lfbxpwvfvzxgd6yfqwdlvlm/Crop676x507" alt="Victorian Residence Exterior">
+              <img src="https://images.prop24.com/ywlzl2rrp2ixcxlwrpwlwvjxlm/Crop676x507" alt="Victorian Residence Interior">
+              <img src="https://images.prop24.com/ywlzl2rrp2ixcxlwrpwlwvjxlm/Crop676x507" alt="Victorian Residence View">
+            </div>
+          </div>
+          
+          <div class="property-details">
+            <h4>Historic Victorian Residence - 11 Belvedere Avenue, Oranjezicht</h4>
+            <p class="property-description">This timeless Victorian residence in the heart of Cape Town offers exceptional views of the City, Harbour, and Lions Head. Currently operating as a successful guest house, this property presents an ideal opportunity for our Cape Town flagship clinic.</p>
+            
+            <div class="property-specs">
+              <div class="spec-item">
+                <span class="spec-label">Property Size:</span>
+                <span class="spec-value">498 m²</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Bedrooms:</span>
+                <span class="spec-value">8</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Bathrooms:</span>
+                <span class="spec-value">8</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Zoning:</span>
+                <span class="spec-value">Commercial (Guest House)</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Asking Price:</span>
+                <span class="spec-value">Contact for Details</span>
+              </div>
+            </div>
+            
+            <h4>Property Features</h4>
+            <ul class="property-features">
+              <li>Elegant Victorian architecture with high ceilings and wooden floors</li>
+              <li>Spacious rooms with natural light, ideal for treatment rooms</li>
+              <li>Wrap-around balcony with panoramic city views</li>
+              <li>Parking for 2-3 vehicles</li>
+              <li>5KW Inverter with 5kw battery backup system</li>
+              <li>2 large solar geysers that supply the entire house</li>
+              <li>1000L water collection tank</li>
+              <li>Prime location in prestigious Oranjezicht neighborhood</li>
+              <li>Proximity to top schools, trendy shops, and Table Mountain</li>
+            </ul>
+            
+            <h4>Investment Opportunity</h4>
+            <p>This property aligns perfectly with our expansion strategy for the Cape Town flagship clinic. The historic character combined with modern amenities creates an ideal healing environment for our clients. The existing guest house zoning simplifies the transition to a medical facility, and the spacious rooms can be readily converted to treatment areas as outlined in our proforma.</p>
+            
+            <a href="#" class="download-button">Download Full Property Assessment</a>
+          </div>
+        </div>
+      </div>
       
-      <section>
+      <div id="documents" class="tab-content">
         <h3>Investor Documents</h3>
         <ul class="document-list">
           <li>
@@ -268,9 +550,9 @@
             <a href="#" class="download-button">Download PDF</a>
           </li>
         </ul>
-      </section>
+      </div>
       
-      <section>
+      <div id="events" class="tab-content">
         <h3>Upcoming Investor Events</h3>
         <ul class="document-list">
           <li>
@@ -286,7 +568,478 @@
             <a href="#" class="download-button">Registration Details</a>
           </li>
         </ul>
-      </section>
+      </div>
+      
+      <div id="proforma" class="tab-content">
+        <h3>Financial Proforma</h3>
+        <p>Five-year financial projections for Longevity Alpha, including revenue forecasts, expense projections, and growth metrics.</p>
+        
+        <div class="financial-metrics">
+          <div class="metric">
+            <h3>5-Year Revenue CAGR</h3>
+            <p>42%</p>
+            <span class="change positive">Strong Growth Trajectory</span>
+          </div>
+          <div class="metric">
+            <h3>Projected Break-even</h3>
+            <p>Q3 2026</p>
+            <span class="change positive">On Target</span>
+          </div>
+          <div class="metric">
+            <h3>Projected 2030 Revenue</h3>
+            <p>$28.5M</p>
+            <span class="change positive">↑ 578% from 2025</span>
+          </div>
+          <div class="metric">
+            <h3>Projected 2030 EBITDA</h3>
+            <p>$11.4M</p>
+            <span class="change positive">40% Margin</span>
+          </div>
+        </div>
+        
+        <h3>Clinic Space & Cost Analysis</h3>
+        <p>Detailed breakdown of space requirements, capital costs, and financial metrics for our flagship clinic model.</p>
+        
+        <div class="proforma-table-container">
+          <table class="proforma-table">
+            <thead>
+              <tr>
+                <th colspan="2">Service/Facility</th>
+                <th>Space Required (m²)</th>
+                <th>Capital Cost (equipment)</th>
+                <th>COGS Per Patient (ZAR)</th>
+                <th>Break Even Treatments</th>
+                <th>Revenue Per Patient (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Off Site Section -->
+              <tr class="section-header">
+                <td colspan="7">Off Site</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Intake</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Remote Consult</td>
+                <td>100</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="summary-row">
+                <td></td>
+                <td>SF / USD</td>
+                <td>5360</td>
+                <td>$740,450</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              
+              <!-- On Site Section -->
+              <tr class="section-header">
+                <td colspan="7">On Site</td>
+              </tr>
+              <tr class="summary-row">
+                <td></td>
+                <td>M²</td>
+                <td>498</td>
+                <td>$13,868,629</td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              
+              <!-- Consultation Rooms -->
+              <tr>
+                <td></td>
+                <td>2 Consult Rooms</td>
+                <td>20</td>
+                <td>$28,000</td>
+                <td>2,000</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Blood Work - Basic</td>
+                <td>20</td>
+                <td>$1,250</td>
+                <td>2,000</td>
+                <td>12</td>
+                <td>106</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Genetic Test (same room as blood work)</td>
+                <td>0</td>
+                <td>$1,250</td>
+                <td>265</td>
+                <td>89</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Toxin Burden Test (same room as blood work)</td>
+                <td>0</td>
+                <td>$650</td>
+                <td>12,500</td>
+                <td>2</td>
+                <td>663</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Longevity Marker Test (same room as blood work)</td>
+                <td>0</td>
+                <td>$650</td>
+                <td>12,500</td>
+                <td>2</td>
+                <td>663</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>DXA Scan (Body Comp Scanner)</td>
+                <td>20</td>
+                <td>$60,000</td>
+                <td>800</td>
+                <td>1,415</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Biokinteticist (Attached to Gym)</td>
+                <td>10</td>
+                <td>$19,000</td>
+                <td>800</td>
+                <td>448</td>
+                <td>42</td>
+              </tr>
+              
+              <!-- Member Facilities -->
+              <tr class="subsection-header">
+                <td></td>
+                <td colspan="6">Open for Members (Qualification for Therapy)</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Sleep Room (Sleep Study)</td>
+                <td>24</td>
+                <td>$49,500</td>
+                <td>3500</td>
+                <td>267</td>
+                <td>186</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Emotional Wellness Room/Ketamine/Sound Bath</td>
+                <td>65</td>
+                <td>$68,000</td>
+                <td>1000</td>
+                <td>1,283</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Gym Time (With Natural Food Bar/Shake Bar)</td>
+                <td>160</td>
+                <td>$82,500</td>
+                <td>800</td>
+                <td>1,946</td>
+                <td>42</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Cold Plunge</td>
+                <td>10</td>
+                <td>$3,500</td>
+                <td>100</td>
+                <td>660</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Gym Bathroom</td>
+                <td>10</td>
+                <td>$40,000</td>
+                <td>0</td>
+                <td></td>
+                <td>0</td>
+              </tr>
+              
+              <!-- Supplements -->
+              <tr class="subsection-header">
+                <td></td>
+                <td colspan="6">Supplements</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Suplement Stack (Men/Womens etc)</td>
+                <td>2</td>
+                <td>$150</td>
+                <td>2,500</td>
+                <td>1</td>
+                <td>133</td>
+              </tr>
+              
+              <!-- Advanced Self Serve -->
+              <tr class="subsection-header">
+                <td></td>
+                <td colspan="6">Advanced Self Serve</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Dietician</td>
+                <td>10</td>
+                <td>$9,000</td>
+                <td>1,200</td>
+                <td>142</td>
+                <td>64</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>PEMF</td>
+                <td>2</td>
+                <td>$12,000</td>
+                <td>350</td>
+                <td>647</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>EWOT</td>
+                <td>2</td>
+                <td>$12,000</td>
+                <td>350</td>
+                <td>647</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Red Light Table</td>
+                <td>10</td>
+                <td>$5,000</td>
+                <td>300</td>
+                <td>314</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>BioFlex (Redlight/Infrared)</td>
+                <td>0</td>
+                <td>$4,500</td>
+                <td>300</td>
+                <td>283</td>
+                <td>16</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>HBOT</td>
+                <td>12</td>
+                <td>$14,000</td>
+                <td>650</td>
+                <td>406</td>
+                <td>34</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>EBOO (Blood Therapy)</td>
+                <td>20</td>
+                <td>$33,000</td>
+                <td>12,500</td>
+                <td>50</td>
+                <td>663</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Inupherresiss</td>
+                <td>0</td>
+                <td>$110,000</td>
+                <td>20,000</td>
+                <td>104</td>
+                <td>1,060</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Ozone Spa</td>
+                <td>7</td>
+                <td>$5,500</td>
+                <td>400</td>
+                <td>259</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Compression leggings</td>
+                <td>8</td>
+                <td>$1,100</td>
+                <td>150</td>
+                <td>138</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Infared Sauna</td>
+                <td>3</td>
+                <td>$15,000</td>
+                <td>200</td>
+                <td>1,415</td>
+                <td>11</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>V02 max measuring device</td>
+                <td>2</td>
+                <td>$60,000</td>
+                <td>1,500</td>
+                <td>755</td>
+                <td>80</td>
+              </tr>
+              
+              <!-- Medically Monitored Therapy -->
+              <tr class="subsection-header">
+                <td></td>
+                <td colspan="6">Medically Monitored Therapy</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Prep/Storage Room</td>
+                <td>10</td>
+                <td>$3,300</td>
+                <td>1,500</td>
+                <td>42</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>IV Room (with TV + sound system)</td>
+                <td>20</td>
+                <td>$3,800</td>
+                <td>1,500</td>
+                <td>48</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Peptides</td>
+                <td>2</td>
+                <td></td>
+                <td>1500</td>
+                <td>0</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>TRT</td>
+                <td>2</td>
+                <td></td>
+                <td>1500</td>
+                <td>0</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Follistatin Gene Therapy (Mini Circle)</td>
+                <td>2</td>
+                <td></td>
+                <td>25000</td>
+                <td>0</td>
+                <td>1,325</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>NAD</td>
+                <td>2</td>
+                <td></td>
+                <td>400</td>
+                <td>0</td>
+                <td>21</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Exososomes</td>
+                <td>2</td>
+                <td>$1,000</td>
+                <td>60,000</td>
+                <td>N/A</td>
+                <td>3,180</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>PRP</td>
+                <td>2</td>
+                <td>$300</td>
+                <td>1,000</td>
+                <td>6</td>
+                <td>53</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Stem Cells</td>
+                <td>2</td>
+                <td>$26,000</td>
+                <td>50,000</td>
+                <td>10</td>
+                <td>2,650</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Senolytics</td>
+                <td>2</td>
+                <td>NOT APPROVED IN SA</td>
+                <td>25000</td>
+                <td>N/A</td>
+                <td>1,325</td>
+              </tr>
+              
+              <!-- Required Facilities -->
+              <tr class="subsection-header">
+                <td></td>
+                <td colspan="6">Required Facilities</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Bathrooms</td>
+                <td>5</td>
+                <td>$17,500</td>
+                <td>0</td>
+                <td>N/A</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Lobby / Conference Rooms</td>
+                <td>25</td>
+                <td>$53,000</td>
+                <td>0</td>
+                <td>N/A</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <ul class="document-list">
+          <li>
+            <h3>Detailed 5-Year Financial Proforma</h3>
+            <p>Comprehensive financial projections with quarterly breakdowns, including revenue streams, operating expenses, and profitability metrics.</p>
+            <a href="#" class="download-button">Download Excel</a>
+          </li>
+          <li>
+            <h3>Market Expansion Strategy</h3>
+            <p>Detailed plan for geographic expansion and new treatment offerings with associated revenue projections.</p>
+            <a href="#" class="download-button">Download PDF</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </main>
 
@@ -319,6 +1072,25 @@
         checkPassword();
       }
     });
+    
+    // Tab functionality
+    function openTab(evt, tabName) {
+      // Hide all tab content
+      const tabContents = document.getElementsByClassName('tab-content');
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+      }
+      
+      // Remove active class from all tab buttons
+      const tabButtons = document.getElementsByClassName('tab-button');
+      for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove('active');
+      }
+      
+      // Show the selected tab content and mark button as active
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
   </script>
 </body>
 </html>
